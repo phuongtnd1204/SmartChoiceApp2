@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Xamd.ImageCarousel.Forms.Plugin.Abstractions;assembly=Xamd.ImageCarousel.Forms.Plugin.Abstractions"
+                xmlns:abc="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="SmartChoiceApp.Views.ManufacturerDetailPage"
+             Title="Thông tin NSX">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LeftLabel">
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style TargetType="Label" x:Key="RightLabel">
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout Padding="20" Spacing="20">
+                    <Image VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="200"
+                       Source="{Binding Manufacturer.HinhAnh}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="Tên chủ sản xuất:" Grid.Column="0" Grid.Row="0" Style="{StaticResource LeftLabel}"/>
+                        <Label Text="Địa chỉ:" Grid.Column="0" Grid.Row="1" Style="{StaticResource LeftLabel}"/>
+                        <Label Text="Số điện thoại:" Grid.Column="0" Grid.Row="2" Style="{StaticResource LeftLabel}"/>
+
+                        <Label Text="{Binding Manufacturer.TenNSX}" Grid.Column="1" Grid.Row="0" Style="{StaticResource RightLabel}"/>
+                        <Label Text="{Binding Manufacturer.DiaChi}" Grid.Column="1" Grid.Row="1" Style="{StaticResource RightLabel}"/>
+                        <Label Text="{Binding Manufacturer.SDT}" Grid.Column="1" Grid.Row="2" Style="{StaticResource RightLabel}"/>
+                    </Grid>
+                    <Label Text="Giấy chứng nhận chất lượng:" Grid.Column="0" Grid.Row="0" Style="{StaticResource LeftLabel}"/>
+                    <Image VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="200"
+                       Source="{Binding Manufacturer.GiayChungNhanCL}"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SmartChoiceApp.Controls"
+             x:Class="SmartChoiceApp.Controls.NumericEntry"
+             x:Name="this">
+    <ContentView.Content>
+            <Grid>
+                <Image Source="{Binding Background, Source={x:Reference this}}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Fill"
+                   Aspect="Fill"
+                   HeightRequest="45"
+                   Margin="0,7,0,0"/>
+
+                <Grid VerticalOptions="Start"
+                  HorizontalOptions="Start"
+                  BackgroundColor="White"
+                  Padding="5,0"
+                  Margin="10,0"
+                  x:Name="MainTitle">
+                    <Label Text="{Binding Title, Source={x:Reference this}}"
+                       FontSize="10"
+                       TextColor="#24bd64"
+                       x:Name="MainLabel"/>
+                </Grid>
+
+                <controls:ExtendedEntry Borderless="True"  
+                                        Keyboard="Numeric"
+                                    Text="{Binding Text, Source={x:Reference this}}"
+                                    FontSize="16"
+                                    Margin="7,7,7,0"
+                                    VerticalOptions="Center"
+                                    x:Name="MainEntry"
+/>
+            </Grid>
+        </ContentView.Content>
+        </ContentView>

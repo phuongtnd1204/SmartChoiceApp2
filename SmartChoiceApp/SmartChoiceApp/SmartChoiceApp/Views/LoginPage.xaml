@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:SmartChoiceApp.Controls"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SmartChoiceApp.Views.LoginPage"
+             Title="Đăng Nhập"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Padding="30" Spacing="20">
+        <Image Source="Logo"/>
+        <controls:FloatingEntry Title="Tên đăng nhập" Text="{Binding TenDangNhap}" />
+        <controls:FloatingEntry IsPassword="True" Title="Mật khẩu" Text="{Binding MatKhau}"/>
+        <StackLayout HeightRequest="30">
+            <ActivityIndicator IsRunning="{Binding IsWaiting}" IsVisible="{Binding IsWaiting}"/>
+        </StackLayout>
+        <Button Text="Đăng nhập" Command="{Binding LoginCommand}"/>
+        <Label Text="Đăng ký">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+    </StackLayout>
+</ContentPage>

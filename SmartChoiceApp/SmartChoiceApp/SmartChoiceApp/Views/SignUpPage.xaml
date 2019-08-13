@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:SmartChoiceApp.Controls"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SmartChoiceApp.Views.SignUpPage"
+             Title="Đăng Ký">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="20">
+                <Image Source="Logo"/>
+                <controls:FloatingEntry Title="Tên người dùng"
+                                        Text="{Binding UserInfo.TenNguoiDung, Mode=OneWayToSource}"/>
+                <controls:NumericEntry Title="Số điện thoại"                        
+                                        Text="{Binding SDT, Mode=OneWayToSource}" />
+                <controls:FloatingEntry Title="Tên đăng nhập" 
+                                        Text="{Binding UserInfo.TenDangNhap, Mode=OneWayToSource}"/>
+                <controls:FloatingEntry IsPassword="True" Title="Mật khẩu"
+                                        Text="{Binding UserInfo.MatKhau, Mode=OneWayToSource}"/>
+                <controls:FloatingEntry IsPassword="True" Title="Nhập lại mật khẩu" 
+                                        Text="{Binding MatKhau2, Mode=OneWayToSource}"/>
+                <StackLayout HeightRequest="30">
+                    <ActivityIndicator IsRunning="{Binding IsWaiting}" IsVisible="{Binding IsWaiting}"/>
+                </StackLayout>
+                <Button Text="Đăng ký" Command="{Binding SignUpCommand}"/>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

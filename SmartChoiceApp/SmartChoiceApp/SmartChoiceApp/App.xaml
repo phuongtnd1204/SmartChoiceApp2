@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+             xmlns:controls="clr-namespace:SmartChoiceApp.Controls"
+             xmlns:custom1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="SmartChoiceApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="NavigationPage">
+                <Setter Property="NavigationPage.BarBackgroundColor" Value="#24bd64"/>
+                <Setter Property="BarTextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#24bd64"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BorderRadius" Value="5"/>
+            </Style>
+            <Style TargetType="controls:FloatingEntry">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Background" Value="borderEntry"/>
+            </Style>
+            <Style TargetType="controls:NumericEntry">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Background" Value="borderEntry"/>
+            </Style>
+            <Style TargetType="controls:CustomEditor">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="Background" Value="borderEntry"/>
+            </Style>
+            <Style TargetType="custom1:CircleImage">
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderColor" Value="Black"/>
+            </Style>
+            <Style TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="#24bd64"/>
+            </Style>
+            <Style TargetType="ListView">
+                <Setter Property="SeparatorColor" Value="#24bd64"/>
+            </Style>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</prism:PrismApplication>

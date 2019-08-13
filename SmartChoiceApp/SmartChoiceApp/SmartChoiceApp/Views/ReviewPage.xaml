@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SmartChoiceApp.Controls"
+             xmlns:converters="clr-namespace:SmartChoiceApp.Converter"
+             x:Class="SmartChoiceApp.Views.ReviewPage"
+             Title="Đánh giá của bạn">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ToDouble x:Key="ToDouble"></converters:ToDouble>
+            <Style TargetType="controls:RatingControl">
+                <Setter Property="ImageFullStar" Value="fullStar.png"/>
+                <Setter Property="ImageEmptyStar" Value="emptyStar.png"/>
+                <Setter Property="ImageHalfStar" Value="halfStar.png"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="30" Spacing="20">
+            <StackLayout Orientation="Horizontal">
+                <Picker ItemsSource="{Binding starList}" Title="Chọn số sao" SelectedItem="{Binding Rating, Mode=OneWayToSource}" />
+                <controls:RatingControl Rating="{Binding Rating, Converter={StaticResource ToDouble}, Mode=OneWay}"
+                                        HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+
+            <controls:CustomEditor Text="{Binding Comment}"
+                    HeightRequest="70" Title="Đánh giá" />
+            <Button Text="Gửi" HorizontalOptions="FillAndExpand" Command="{Binding AddReviewCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

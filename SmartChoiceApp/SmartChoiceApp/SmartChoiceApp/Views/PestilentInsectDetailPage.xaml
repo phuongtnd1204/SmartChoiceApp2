@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartChoiceApp.Views.PestilentInsectDetailPage"
+             Title="Sâu bệnh">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="TitleLabel">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+            </Style>
+            <Style TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout IsVisible="{Binding NoInformationLayout}">
+                <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center" Text="Không có thông tin sâu bệnh"/>
+            </StackLayout>
+            <StackLayout Padding="10" Spacing="20" IsVisible="{Binding InformationLayout}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Text="Sâu bệnh" Grid.Column="0" Grid.Row="0" Style="{StaticResource TitleLabel}"/>
+
+                    <Label Text="Cách xử lý" Grid.Column="1" Grid.Row="0" Style="{StaticResource TitleLabel}"/>
+
+                    <ListView HasUnevenRows="True" SelectionMode="None" ItemsSource="{Binding Insects}"
+                              Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VerticalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="100"/>
+                                            <RowDefinition Height="50"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{Binding HinhAnhSauBenh}" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Text="{Binding SauBenh}" Grid.Column="0" Grid.Row="1"/>
+
+                                        <Label Text="{Binding CachXuLy}"  Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

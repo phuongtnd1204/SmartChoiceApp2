@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:custom1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:controls1="clr-namespace:SmartChoiceApp.Controls"
+             xmlns:converters1="clr-namespace:SmartChoiceApp.Converter"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SmartChoiceApp.Views.CommentPage"
+             Title="Đánh giá sản phẩm">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters1:ToDouble x:Key="ToDouble"></converters1:ToDouble>
+            <Style TargetType="Label" x:Key="LeftLabel">
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style TargetType="controls1:RatingControl">
+                <Setter Property="ImageFullStar" Value="fullStar.png"/>
+                <Setter Property="ImageEmptyStar" Value="emptyStar.png"/>
+                <Setter Property="ImageHalfStar" Value="halfStar.png"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <StackLayout>
+                <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                   Text="Sản phẩm không có đánh giá!!!" 
+                   IsVisible="{Binding NoInformationLayout}"/>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding InformationLayout}">
+                <ListView HasUnevenRows="True" SelectionMode="None" ItemsSource="{Binding Reviews}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Spacing="15">
+                                    <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                        <custom1:CircleImage Source="{Binding AnhDaiDien}"                                       
+                                             VerticalOptions="CenterAndExpand"
+                                             HorizontalOptions="Start"
+                                             HeightRequest="50" WidthRequest="50">
+                                        </custom1:CircleImage>
+                                        <StackLayout>
+                                            <Label Text="{Binding TenNguoiDung}" Style="{StaticResource LeftLabel}"/>
+                                            <controls1:RatingControl Rating="{Binding Rating, Converter={StaticResource ToDouble}}" HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Label Margin="15,0,0,0" Text="{Binding NoiDung}"/>
+                                    <Label Margin="15,0,0,0" Text="{Binding NgayBinhLuan}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
