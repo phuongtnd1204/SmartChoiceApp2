@@ -181,8 +181,15 @@ namespace SmartChoiceApp.ViewModels
 
         public override void OnNavigatingTo(INavigationParameters parameters)
         {
-            ProductID = parameters.GetValue<int>("ID");
-            Init();
+            try
+            {
+                ProductID = parameters.GetValue<int>("ID");
+                Init();
+            }
+            catch
+            {
+                hasProductIformation(false);
+            }
         }
 
         #endregion

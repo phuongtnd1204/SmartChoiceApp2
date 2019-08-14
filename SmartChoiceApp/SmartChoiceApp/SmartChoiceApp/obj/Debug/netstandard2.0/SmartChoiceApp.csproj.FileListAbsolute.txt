@@ -1,7 +1,6 @@
 E:\KhoaLuan\Second\SmartChoiceApp\SmartChoiceApp\SmartChoiceApp\bin\Debug\netstandard2.0\SmartChoiceApp.deps.json
 E:\KhoaLuan\Second\SmartChoiceApp\SmartChoiceApp\SmartChoiceApp\bin\Debug\netstandard2.0\SmartChoiceApp.dll
 E:\KhoaLuan\Second\SmartChoiceApp\SmartChoiceApp\SmartChoiceApp\bin\Debug\netstandard2.0\SmartChoiceApp.pdb
-E:\KhoaLuan\Second\SmartChoiceApp\SmartChoiceApp\SmartChoiceApp\obj\Debug\netstandard2.0\SmartChoiceApp.csprojAssemblyReference.cache
 E:\KhoaLuan\Second\SmartChoiceApp\SmartChoiceApp\SmartChoiceApp\obj\Debug\netstandard2.0\App.xaml.g.cs
 E:\KhoaLuan\Second\SmartChoiceApp\SmartChoiceApp\SmartChoiceApp\obj\Debug\netstandard2.0\Controls\CustomEditor.xaml.g.cs
 E:\KhoaLuan\Second\SmartChoiceApp\SmartChoiceApp\SmartChoiceApp\obj\Debug\netstandard2.0\Controls\FloatingEntry.xaml.g.cs

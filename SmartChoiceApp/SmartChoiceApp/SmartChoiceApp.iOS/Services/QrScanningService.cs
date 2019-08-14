@@ -14,7 +14,7 @@ namespace SmartChoiceApp.iOS.Services
                 
                 var options = new ZXing.Mobile.MobileBarcodeScanningOptions();
                 options.PossibleFormats = new List<ZXing.BarcodeFormat>() {
-                ZXing.BarcodeFormat.EAN_8, ZXing.BarcodeFormat.EAN_13, ZXing.BarcodeFormat.QR_CODE
+                ZXing.BarcodeFormat.QR_CODE
                 };
 
                 var scanner = new ZXing.Mobile.MobileBarcodeScanner();
